@@ -1,0 +1,34 @@
+<!-- Music: http://www.bensound.com -->
+<div class="container">
+  <div class="col-md-4"></div>
+  <div class="col-md-5">
+    <h1>
+      {{message}}
+    </h1>
+  </div>
+    <div class="col-md-5">
+      <img (click)="evilLaugh()" class="img-responsive" src="{{watcher}}">
+    </div>
+    <div class="table-responsive col-md-7">
+      <table class="panel table">
+        <tr *ngFor="let x of full">
+          <td *ngFor="let y of x" (click)="changeImage(y)"><button><img class="img-responsive" src="{{y.src}}"></button></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col-md-4">
+    <button class="btn btn-danger"> 
+      <meter value={{lives}} min=0 max=6 low=1 high=4 optimum=5></meter>
+    </button>
+      <br><br>
+      <button class="btn btn-info btn-sm" (click)="reload()">restart</button>
+      <button *ngIf="muted==false" class="btn btn-info btn-sm" (click)="mute()">mute</button>
+      <button *ngIf="muted==true" class="btn btn-info btn-sm" (click)="unmute()">unmute</button>
+    </div>
+    <p><em>Hint: {{hint}}</em></p>
+<!-- <button (click)="upload()" class="btn btn-lg upload-btn" type="button">Upload File</button> {% endcomment %} -->
+<!-- <input #inputFile  (change)="sendToServer()" id="upload-input" type="file" name="uploads[]" multiple="multiple"><br/> -->
+
+  
+</div>
